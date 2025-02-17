@@ -41,7 +41,7 @@ Use un árbol de recursión para proveer una cota ajustada a la recurrencia $ T(
 
 Use el *Master Method* (si es posible) para dar cotas ajustadas a las siguientes recurrencias:  
 
-### T(n) = 2T\left(\frac{n}{4}\right) + \sqrt{n} $  
+### $ T(n) = 2T\left(\frac{n}{4}\right) + \sqrt{n} $  
 
 ### $ T(n) = 4T\left(\frac{n}{2}\right) + n^2 \log_2 n $
 
@@ -56,19 +56,19 @@ Sea $ G = (V, E) $ un grafo dirigido. Deseamos determinar si existe un camino qu
 ![Algorithm Savitch](./images/savitch.png "Algorithm Savitch")
 
 <!-- **Algorithm 3.4 Savitch**  
-1: if \(i = 0\) then  
-2: &emsp; if \(u = v\) then  
+1: if $i = 0$ then  
+2: &emsp; if $u = v$ then  
 3: &emsp;&emsp; return T  
-4: &emsp; else if \((u, v)\) is an edge then  
+4: &emsp; else if $(u, v)$ is an edge then  
 5: &emsp;&emsp; return T  
 6: &emsp; end if  
 7: else  
-8: &emsp; for every vertex \(w\) do  
-9: &emsp;&emsp; if \(R(G, u, w, i - 1)\) and \(R(G, w, v, i - 1)\) then  
+8: &emsp; for every vertex $w$ do  
+9: &emsp;&emsp; if $R(G, u, w, i - 1)$ and $R(G, w, v, i - 1)$ then  
 10: &emsp;&emsp;&emsp; return T  
 11: &emsp;&emsp; end if  
 12: &emsp; end for  
 13: end if  
 14: return F   -->
 
-Identifique las partes *Divide*, *Conquer* y *Combine* de este algoritmo, y determine (con notación asintótica) una cota superior para su tiempo de ejecución si se ejecuta para \(i = \log_2 n\), donde \(n\) es el número de vértices en el grafo. El tiempo de ejecución que encuentre, ¿será indicador de eficiencia (es decir, será que el algoritmo es “rápido”) o de ineficiencia (“lento”)?
+Identifique las partes *Divide*, *Conquer* y *Combine* de este algoritmo, y determine (con notación asintótica) una cota superior para su tiempo de ejecución si se ejecuta para $i = \log_2 n$, donde $n$ es el número de vértices en el grafo. El tiempo de ejecución que encuentre, ¿será indicador de eficiencia (es decir, será que el algoritmo es “rápido”) o de ineficiencia (“lento”)?
