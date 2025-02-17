@@ -30,11 +30,13 @@ $ T(n) = 4T\left(\frac{n}{2}\right) + n $. La solución de acuerdo con el *Maste
 ## Solución de Recurrencia por Método de Sustitución
 
 ### Planteamiento Inicial
+
 Tenemos la recurrencia $$T(n) = 4T\left(\frac{n}{2}\right) + n$$
 
 Según el Teorema Maestro, esta recurrencia cae en el Caso 2, ya que $f(n) = n$ es polinomialmente menor que $n^2$ (donde $a=4$ y $b=2$). Por lo tanto, la solución debería ser $\Theta(n^2)$. Sin embargo, al intentar asumir $T(n) \leq cn^2$, la sustitución no funciona.
 
 ### Primera Hipótesis
+
 Asumamos que $T(k) \leq ck^2$ para todo $k < n$. Sustituyendo en la recurrencia:
 
 $$T(n) = 4T\left(\frac{n}{2}\right) + n$$
@@ -49,6 +51,7 @@ $$cn^2 + n \leq cn^2$$
 Esto implicaría que $n \leq 0$, lo cual es imposible ya que $n > 0$. Por lo tanto, la hipótesis inicial falla.
 
 ### Cambio de hipótesis Hipótesis
+
 Debido a que la hipótesis inicial falla, se realizaran cambios para la hipótesis de la forma $$T(n) \leq cn^2 - dn$$ para algunas constantes $c$ y $d$.
 
 Sustituyendo en la recurrencia:
