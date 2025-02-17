@@ -37,6 +37,62 @@ Resuelva la recurrencia $ T(n) = 3T(\sqrt{n}) + \log_2 n $. Para hacerlo demuest
 
 Use un árbol de recursión para proveer una cota ajustada a la recurrencia $ T(n - a) + T(a) + cn $, donde $ a \ge 1 $, $ c > 0 $; ambas constantes. Puede suponer que $ n $ es múltiplo de $ a $.
 
+### Solución
+
+El problema nos indica que la función $ T(n) $ se divide en dos subproblemas: uno de tamaño $ T(n-a) $ y otro constante $ T(a) $. El tiempo total de ejecución en cada nivel de recursión es la suma de estos términos más un costo lineal adicional de $ cn $.
+
+#### Iteración 1
+
+- Cantidad de elementos: $ cn $
+- Subproblema 1: $ c(n-a) $
+- Subproblema 2: $ c(a) $
+- **Total de tiempo de ejecución:** $ cn $, ya que:
+
+  $$ c(n-a) + c(a) = cn - ca + ca = cn $$
+
+#### Iteración 2
+
+- Subproblema 1: $ c(n-a) $ se subdivide en:
+  - Subproblema 1.1: $ c(n-a-a) = c(n-2a) $
+  - Subproblema 1.2: $ c(a) $
+- Subproblema 2: $ c(a) $
+- **Total de tiempo de ejecución:** $ cn $, ya que:
+
+  $$ c(n-2a) + c(a) + c(a) = cn - 2ca + ca + ca = cn $$
+
+Siguiendo este patrón, podemos ver que en cada nivel la suma total del costo sigue siendo $ cn $.
+
+![Árbol de Recursión](./images/arbol_recursion.png "Árbol de Recursión")
+
+#### Determinación de la cantidad de niveles
+
+El proceso continúa hasta que el subproblema grande $ c(n-ka) $ sea igual a la constante $ c(a) $. Para encontrar el número de niveles $ k $, resolvemos:
+
+$$ c(n-ka) = c(a) $$
+$$ n-ka = a $$
+$$ n-a = ka $$
+$$ k = \frac{n-a}{a} = \frac{n}{a} - 1 $$
+
+Por lo tanto, el árbol de recursión tiene $ k $ niveles.
+
+#### Cálculo del tiempo total de ejecución
+
+El tiempo total de ejecución es el número de niveles multiplicado por el costo de cada nivel:
+
+$$ T(n) = k \cdot cn $$
+
+Sustituyendo $ k = \frac{n}{a} - 1 $:
+
+$$ T(n) = \left( \frac{n}{a} - 1 \right) cn $$
+
+Distribuyendo:
+
+$$ T(n) = \frac{cn^2}{a} - cn $$
+
+El término dominante es $ \frac{cn^2}{a} $, ya que crece más rápido que $ cn $ cuando $ n $ tiende a infinito. Los factores constantes $ c $ y $ a $ no afectan la notación asintótica, por lo tanto, la cota ajustada es:
+
+$$ T(n) = O(n^2) $$
+
 ## Ejercicio 4
 
 Use el *Master Method* (si es posible) para dar cotas ajustadas a las siguientes recurrencias:  
