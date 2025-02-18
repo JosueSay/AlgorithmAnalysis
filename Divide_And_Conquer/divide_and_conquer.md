@@ -116,63 +116,63 @@ Ahora para solucionar la ecuación de recurrencia:
 ## Ejercicio 3
 ### Solución
 
-El problema nos indica que la función $ T(n) $ se divide en dos subproblemas: uno de tamaño $ T(n-a) $ y otro constante $ T(a) $. El tiempo total de ejecución en cada nivel de recursión es la suma de estos términos más un costo lineal adicional de $ cn $.
+El problema nos indica que la función $ T(n) $ se divide en dos subproblemas: uno de tamaño $T(n-a)$ y otro constante $T(a)$. El tiempo total de ejecución en cada nivel de recursión es la suma de estos términos más un costo lineal adicional de $cn$.
 
 #### Iteración 1
 
 - Cantidad de elementos: $ cn $
 - Subproblema 1: $ c(n-a) $
 - Subproblema 2: $ c(a) $
-- **Total de tiempo de ejecución:** $ cn $, ya que:
+- **Total de tiempo de ejecución:** $cn$, ya que:
 
-  $$ c(n-a) + c(a) = cn - ca + ca = cn $$
+  $$c(n-a) + c(a) = cn - ca + ca = cn$$
 
 #### Iteración 2
 
-- Subproblema 1: $ c(n-a) $ se subdivide en:
-  - Subproblema 1.1: $ c(n-a-a) = c(n-2a) $
-  - Subproblema 1.2: $ c(a) $
-- Subproblema 2: $ c(a) $
-- **Total de tiempo de ejecución:** $ cn $, ya que:
+- Subproblema 1: $c(n-a)$ se subdivide en:
+  - Subproblema 1.1: $c(n-a-a) = c(n-2a)$
+  - Subproblema 1.2: $c(a)$
+- Subproblema 2: $c(a)$
+- **Total de tiempo de ejecución:** $cn$, ya que:
 
-  $$ c(n-2a) + c(a) + c(a) = cn - 2ca + ca + ca = cn $$
+  $$c(n-2a) + c(a) + c(a) = cn - 2ca + ca + ca = cn$$
 
-Siguiendo este patrón, podemos ver que en cada nivel la suma total del costo sigue siendo $ cn $.
+Siguiendo este patrón, podemos ver que en cada nivel la suma total del costo sigue siendo $cn$.
 
 ![Árbol de Recursión](./images/arbol_recursion.png "Árbol de Recursión")
 
 #### Determinación de la cantidad de niveles
 
-El proceso continúa hasta que el subproblema grande $ c(n-ka) $ sea igual a la constante $ c(a) $. Para encontrar el número de niveles $ k $, resolvemos:
+El proceso continúa hasta que el subproblema grande $c(n-ka)$ sea igual a la constante $c(a)$. Para encontrar el número de niveles $k$, resolvemos:
 
-$$ c(n-ka) = c(a) $$
-$$ n-ka = a $$
-$$ n-a = ka $$
-$$ k = \frac{n-a}{a} = \frac{n}{a} - 1 $$
+$$c(n-ka) = c(a)$$
+$$n-ka = a$$
+$$n-a = ka$$
+$$k = \frac{n-a}{a} = \frac{n}{a} - 1$$
 
-Por lo tanto, el árbol de recursión tiene $ k $ niveles.
+Por lo tanto, el árbol de recursión tiene $k$ niveles.
 
 #### Cálculo del tiempo total de ejecución
 
 El tiempo total de ejecución es el número de niveles multiplicado por el costo de cada nivel:
 
-$$ T(n) = k \cdot cn $$
+$$T(n) = k \cdot cn$$
 
 Sustituyendo $ k = \frac{n}{a} - 1 $:
 
-$$ T(n) = \left( \frac{n}{a} - 1 \right) cn $$
+$$T(n) = \left( \frac{n}{a} - 1 \right) cn$$
 
 Distribuyendo:
 
-$$ T(n) = \frac{cn^2}{a} - cn $$
+$$T(n) = \frac{cn^2}{a} - cn$$
 
-El término dominante es $ \frac{cn^2}{a} $, ya que crece más rápido que $ cn $ cuando $ n $ tiende a infinito. Los factores constantes $ c $ y $ a $ no afectan la notación asintótica, por lo tanto, la cota ajustada es:
+El término dominante es $ \frac{cn^2}{a} $, ya que crece más rápido que $ cn $ cuando $ n $ tiende a infinito. Los factores constantes $c$ y $a$ no afectan la notación asintótica, por lo tanto, la cota ajustada es:
 
-$$ T(n) = O(n^2) $$
+$$T(n) = O(n^2)$$
 
 Tu razonamiento tiene algunos errores, pero la idea general está bien orientada. Aquí te doy una versión corregida y mejorada de tu demostración:
 
-### Demostración para $ T(n) = O(n^2) $
+### Demostración para $T(n) = O(n^2)$
 
 La recurrencia dada es:
 
@@ -187,58 +187,39 @@ $$
 Queremos probar que también se cumple para $ n $.
 
 Partimos de la recurrencia original:
-$$
-T(n) = T(n - a) + T(a) + cn
-$$
+$$T(n) = T(n - a) + T(a) + cn$$
 
 Aplicando la hipótesis de inducción al término $ T(n - a) $:
-$$
-T(n - a) \leq c(n - a)^2
-$$
+$$T(n - a) \leq c(n - a)^2$$
 
 Sabemos que $ T(a) $ es constante, ya que $ a $ es constante, digamos $ T(a) = O(1) \leq c a^2 $ para ajustar la notación.
 
 Entonces:
-$$
-T(n) \leq c(n - a)^2 + c a^2 + cn
-$$
+$$T(n) \leq c(n - a)^2 + c a^2 + cn$$
 
 Expandiendo el primer término:
-$$
-c(n^2 - 2an + a^2) + c a^2 + cn
-$$
+$$c(n^2 - 2an + a^2) + c a^2 + cn$$
 
 Agrupando términos semejantes:
-$$
-= c n^2 - 2 c a n + c a^2 + c a^2 + c n
-$$
+$$= c n^2 - 2 c a n + c a^2 + c a^2 + c n$$
 
-$$
-= c n^2 - 2 c a n + c n + 2 c a^2
-$$
+$$= c n^2 - 2 c a n + c n + 2 c a^2$$
 
 Para valores grandes de $ n $, el término dominante es $ c n^2 $, ya que los términos lineales y constantes son despreciables en comparación con el crecimiento cuadrático.
 
 Por lo tanto:
-$$
-T(n) \leq c n^2
-$$
+$$T(n) \leq c n^2$$
 
 Dando como resultado:
-$$
-T(n) = O(n^2)
-$$
+$$T(n) = O(n^2)$$
 
 #### **Caso Base:**
 Para $ n = a $, la recurrencia indica:
-$$
-T(a) = O(1)
-$$
+$$T(a) = O(1)$$
 Claramente:
-$$
-T(a) \leq c a^2
-$$
+$$T(a) \leq c a^2$$
 para alguna constante $ c > 0 $, lo cual establece la base de la inducción.
+
 
 ## Ejercicio 4
 
