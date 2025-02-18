@@ -236,15 +236,18 @@ para alguna constante $ c > 0 $, lo cual establece la base de la inducción.
 
 Use el *Master Method* (si es posible) para dar cotas ajustadas a las siguientes recurrencias:  
 
-### $ T(n) = 2T\left(\frac{n}{4}\right) + \sqrt{n} $  
-
-### $ T(n) = 4T\left(\frac{n}{2}\right) + n^2 \log_2 n $
-
-## Ejercicio 4
-
-Use el *Master Method* (si es posible) para dar cotas ajustadas a las siguientes recurrencias:  
-
-### $ T(n) = 2T\left(\frac{n}{4}\right) + \sqrt{n} $  
+### $$ T(n) = 2T\left(\frac{n}{4}\right) + \sqrt{n} $$
+En esta recurrencia sabemos que a = 2, b= 4 y que 
+$$ f(n) = \sqrt{n} = n^{1/2} $$
+Paso 1: usando los datos que ya sabemos
+$$ log_4 2 = \frac{1}{2} $$
+Ahora, comparamos $$ f(n) $$ con  $$ n^{\log_b a} $$:
+- $$\ f(n) = n^{1/2} \ $$
+- $$\  n^{\log_b a} = n^{1/2} \ $$
+Nos damos cuenta que se cumple el caso dos porque tanto como f(n) y Thetha son iguales 
+$$ \ f(n) = \Theta(n^{\log_b a}) \ $$
+Por lo tanto la solución sería de la siguiente manera
+$$\ T(n) = \Theta(n^{\log_b a} \log n) = \Theta(n^{1/2} \log n) \ $$
 
 ### $ T(n) = 4T\left(\frac{n}{2}\right) + n^2 \log_2 n $
 $$
