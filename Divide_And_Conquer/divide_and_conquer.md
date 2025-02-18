@@ -105,7 +105,15 @@ Ahora para solucionar la ecuación de recurrencia:
 -  $$S(\frac{m}{2}) = 3S(\frac{m}{4}) + \frac{m}{2}$$
 -  Si sustituimos en la ecuación original: $$S(m) = 3S(3S(\frac{m}{4}) + \frac{m}{2}) + \frac{m}{2}$$
 -  Se obtiene que $$9S(\frac{m}{4}) + \frac{3m}{2} + m = 9S(\frac{m}{4}) + \frac{5m}{2}$$
--  Se observa que el patrón general es $$S(m) = 3^k S(\frac{m}{2^k}) +m \sum_{i=0}^{k-1}(\frac{3}{2})î$$
+-  Se observa que el patrón general es $$S(m) = 3^k S(\frac{m}{2^k}) +m \sum_{i=0}^{k-1}(\frac{3}{2})^i$$
+-  Para un k grande, se obtiene que $$\frac{m}{2^k}$$ = $$S(1)$$
+-  La sumatoria es igual a la serie geométrica: $$2((\frac{3}{2})^k -1)$$
+- Aproximando k de $$\frac{m}{2^k} = 1$$ obtenemos que $$2^k = m$$ por lo tanto k == log_2 m$$
+- Entonces $$S(m) = O(m^log_2 3)$$
+- Volviendo a la ecuación original tenemos que $$T(n) = O((log_2 n)^log_2 3)
+- Esto da como resultado que $$T(n) = O((log_10 n)^log_2 3)
+
+## Ejercicio 3
 ### Solución
 
 El problema nos indica que la función $ T(n) $ se divide en dos subproblemas: uno de tamaño $ T(n-a) $ y otro constante $ T(a) $. El tiempo total de ejecución en cada nivel de recursión es la suma de estos términos más un costo lineal adicional de $ cn $.
