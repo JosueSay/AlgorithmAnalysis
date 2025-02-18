@@ -99,11 +99,7 @@ Resuelva la recurrencia $$T(n) = 3T(\sqrt{n}) + \log_2 n$$. Para hacerlo demuest
 
 **Hint**: note que, en $$S(m) $$, $$ m$$ parece ocupar el lugar que $$\log_2 n$$ tiene en $$T(n)$$.
 
-Si sabemos que $$S(m) = 3S\left(\frac{m}{2}\right) + m$$ y que $$m = log_2 n$$, entonces, despejando dicha ecuación para n tenemos que $$2^m = 2^(log_2 n)$$ y eso da como resultado que $$n = 2^m$$, por lo tanto $$T(2^m) = 3T(\sqrt{2^m}) + log_2 2^m$$ lo que nos deja con $$T(2^m) = 3T(\sqrt{2^m}) + m$$
-
-## Ejercicio 3
-
-
+Si sabemos que $$S(m) = 3S\left(\frac{m}{2}\right) + m$$ y que $$m = log_2 n$$, entonces, despejando dicha ecuación para n tenemos que $$2^m = 2^(log_2 n)$$ y eso da como resultado que $$n = 2^m$$, por lo tanto $$T(2^m) = 3T(\sqrt{2^m}) + log_2 2^m$$ lo que nos deja con $$T(2^m) = 3T(\sqrt{2^m}) + m$$. Suponemos que $$S(m) = T(2^m)$$ y por lo tanto, $$T(2^\left(\frac{m}{2}\right)) = S(\left(\frac{m}{2}\right)$$
 ### Solución
 
 El problema nos indica que la función $ T(n) $ se divide en dos subproblemas: uno de tamaño $ T(n-a) $ y otro constante $ T(a) $. El tiempo total de ejecución en cada nivel de recursión es la suma de estos términos más un costo lineal adicional de $ cn $.
