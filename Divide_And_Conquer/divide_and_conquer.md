@@ -177,20 +177,82 @@ Sea $ G = (V, E) $ un grafo dirigido. Deseamos determinar si existe un camino qu
 
 ![Algorithm Savitch](./images/savitch.png "Algorithm Savitch")
 
-<!-- **Algorithm 3.4 Savitch**  
-1: if $i = 0$ then  
-2: &emsp; if $u = v$ then  
-3: &emsp;&emsp; return T  
-4: &emsp; else if $(u, v)$ is an edge then  
-5: &emsp;&emsp; return T  
-6: &emsp; end if  
-7: else  
-8: &emsp; for every vertex $w$ do  
-9: &emsp;&emsp; if $R(G, u, w, i - 1)$ and $R(G, w, v, i - 1)$ then  
-10: &emsp;&emsp;&emsp; return T  
-11: &emsp;&emsp; end if  
-12: &emsp; end for  
-13: end if  
-14: return F   -->
+
 
 Identifique las partes *Divide*, *Conquer* y *Combine* de este algoritmo, y determine (con notación asintótica) una cota superior para su tiempo de ejecución si se ejecuta para $i = \log_2 n$, donde $n$ es el número de vértices en el grafo. El tiempo de ejecución que encuentre, ¿será indicador de eficiencia (es decir, será que el algoritmo es “rápido”) o de ineficiencia (“lento”)?
+
+
+## Solucion
+
+Lo primero que vamos a hacer es analizar el algoritmo. 
+
+
+### Analisis Algoritmo
+
+```plaintext
+Algorithm 3.4 Savitch
+1: if i = 0 then
+2:     if u = v then
+3:         return T
+4:     else if (u, v) is an edge then
+5:         return T
+6:     end if
+7: else
+8:     for every vertex w do  ---> Este es el divide
+9:         if R(G, u, w, i - 1) and R(G, w, v, i - 1) then ----> Este es el conquer
+10:            return T ----> Este es el combine.
+11:        end if
+12:    end for
+13: end if
+14: return F
+```
+
+
+
+Ahora determinaremos el tiempo de ejecucion de cada uno de ellos. $T(i)$ se define el tiempo de ejecucion para el tamaño i de una lista de vertices. 
+
+**Divide** Divide se muestra de la siguiente manera. 
+Se conoce que ```for very vertex w do``` y como se indica en el enunciado sera por un camino de tamaño maximo de $2^i$ pero al encontrar un camino de u a v y de v a u se dividira en 2 caminos. Uno de $2^{i-1}$ y otro de $2^{i-1}$.  Siendo la suma de ambos $2^i$
+
+
+**Conquer**  En la linea ```if R(G, u, w, i - 1) and R(G, w, v, i - 1)```  se ve como n en tiempo de ejecucion 
+
+**Combine** Se tarda en n en tiempo de ejecucion.
+
+
+
+
+Dado que el valor máximo de \( i \) en la ejecución del algoritmo es \( \log_2 i \), expandimos la recurrencia:
+
+\[
+T(i) = i \cdot T(i - 1)
+\]
+
+\[
+= i^2 \cdot T(i - 1)
+\]
+
+\[
+= i^3 \cdot T(i - 1)
+\]
+
+Continuando hasta el caso base \( T(1) \), obtenemos:
+
+\[
+T(i) = n^i
+\]
+
+Aplicando i = $log_2 n$
+
+\[
+T(i) = n^{log_2 n}
+\]
+
+Por lo tanto, la cota superior asintótica del tiempo de ejecución es:
+
+\[
+O(n^{log_2 n})
+\]
+
+
+### Conclusiones
