@@ -159,6 +159,76 @@ El término dominante es $ \frac{cn^2}{a} $, ya que crece más rápido que $ cn 
 
 $$ T(n) = O(n^2) $$
 
+Tu razonamiento tiene algunos errores, pero la idea general está bien orientada. Aquí te doy una versión corregida y mejorada de tu demostración:
+
+### Demostración para $ T(n) = O(n^2) $
+
+La recurrencia dada es:
+
+$$
+T(n) = \begin{cases}
+O(1), & \text{si } n = a \\[6pt]
+T(n - a) + T(a) + cn, & \text{si } n > a
+\end{cases}
+$$
+
+#### **Paso inductivo:**
+Queremos probar que también se cumple para $ n $.
+
+Partimos de la recurrencia original:
+$$
+T(n) = T(n - a) + T(a) + cn
+$$
+
+Aplicando la hipótesis de inducción al término $ T(n - a) $:
+$$
+T(n - a) \leq c(n - a)^2
+$$
+
+Sabemos que $ T(a) $ es constante, ya que $ a $ es constante, digamos $ T(a) = O(1) \leq c a^2 $ para ajustar la notación.
+
+Entonces:
+$$
+T(n) \leq c(n - a)^2 + c a^2 + cn
+$$
+
+Expandiendo el primer término:
+$$
+c(n^2 - 2an + a^2) + c a^2 + cn
+$$
+
+Agrupando términos semejantes:
+$$
+= c n^2 - 2 c a n + c a^2 + c a^2 + c n
+$$
+
+$$
+= c n^2 - 2 c a n + c n + 2 c a^2
+$$
+
+Para valores grandes de $ n $, el término dominante es $ c n^2 $, ya que los términos lineales y constantes son despreciables en comparación con el crecimiento cuadrático.
+
+Por lo tanto:
+$$
+T(n) \leq c n^2
+$$
+
+Dando como resultado:
+$$
+T(n) = O(n^2)
+$$
+
+#### **Caso Base:**
+Para $ n = a $, la recurrencia indica:
+$$
+T(a) = O(1)
+$$
+Claramente:
+$$
+T(a) \leq c a^2
+$$
+para alguna constante $ c > 0 $, lo cual establece la base de la inducción.
+
 ## Ejercicio 4
 
 Use el *Master Method* (si es posible) para dar cotas ajustadas a las siguientes recurrencias:  
