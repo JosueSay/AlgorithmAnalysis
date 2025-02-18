@@ -56,13 +56,20 @@ Esto implicaría que $n \leq 0$, lo cual es imposible ya que $n > 0$. Por lo tan
 Debido a que la hipótesis inicial falla, se realizaran cambios para la hipótesis de la forma $$T(n) \leq cn^2 - dn$$ para algunas constantes $c$ y $d$.
 
 Sustituyendo en la recurrencia:
-$$
-\begin{aligned}
-T(n) &= 4T\left(\frac{n}{2}\right) + n \\[6pt]
-&= 4\left(c\frac{n^2}{4} - d\frac{n}{2}\right) + n \\[6pt]
-&= 4c\frac{n^2}{4} - 4d\frac{n}{2} + n \\[6pt]
-&= cn^2 - 2dn + n
-\end{aligned}
+$$  
+T(n) = 4T\left(\frac{n}{2}\right) + n  
+$$  
+
+$$  
+= 4\left(c\frac{n^2}{4} - d\frac{n}{2}\right) + n  
+$$  
+
+$$  
+= 4c\frac{n^2}{4} - 4d\frac{n}{2} + n  
+$$  
+
+$$  
+= cn^2 - 2dn + n  
 $$
 
 Para que se cumpla $T(n) \leq cn^2 - dn$, necesitamos:
