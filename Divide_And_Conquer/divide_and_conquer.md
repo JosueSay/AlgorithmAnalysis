@@ -103,6 +103,9 @@ Si sabemos que $$S(m) = 3S\left(\frac{m}{2}\right) + m$$ y que $$m = log_2 n$$, 
 
 Ahora para solucionar la ecuación de recurrencia:  
 -  $$S(\frac{m}{2}) = 3S(\frac{m}{4}) + \frac{m}{2}$$
+-  Si sustituimos en la ecuación original: $$S(m) = 3S(3S(\frac{m}{4}) + \frac{m}{2}) + \frac{m}{2}$$
+-  Se obtiene que $$9S(\frac{m}{4}) + \frac{3m}{2} + m = 9S(\frac{m}{4}) + \frac{5m}{2}$$
+-  Se observa que el patrón general es $$S(m) = 3^k S(\frac{m}{2^k}) +m \sum_{i=0}^{k-1}(\frac{3}{2})î$$
 ### Solución
 
 El problema nos indica que la función $ T(n) $ se divide en dos subproblemas: uno de tamaño $ T(n-a) $ y otro constante $ T(a) $. El tiempo total de ejecución en cada nivel de recursión es la suma de estos términos más un costo lineal adicional de $ cn $.
