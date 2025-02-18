@@ -237,6 +237,31 @@ Use el *Master Method* (si es posible) para dar cotas ajustadas a las siguientes
 
 ### $ T(n) = 4T\left(\frac{n}{2}\right) + n^2 \log_2 n $
 
+## Ejercicio 4
+
+Use el *Master Method* (si es posible) para dar cotas ajustadas a las siguientes recurrencias:  
+
+### $ T(n) = 2T\left(\frac{n}{4}\right) + \sqrt{n} $  
+
+### $ T(n) = 4T\left(\frac{n}{2}\right) + n^2 \log_2 n $
+$$
+T(n) = n^2 \log n + 4T\left(\frac{n}{2}\right)
+= n^2 \log n + 4 \left( \left(\frac{n}{2}\right)^2 \log\left(\frac{n}{2}\right) \right) + 16T\left(\frac{n}{4}\right)
+= n^2 \log n + 4 \cdot \frac{n^2}{4} (\log n - 1) + 16 \left( \left(\frac{n}{4}\right)^2 \log\left(\frac{n}{4}\right) \right) + 64T\left(\frac{n}{8}\right)
+= \ldots
+$$
+Puedes continuar despleando la recurrencia hasta $ T(1) $:
+$$
+= n^2 \log n + n^2 (\log n - 1) + n^2 (\log n - 2) + \ldots + n^2 (\log n - k)
+$$
+Donde $ k $ es el logaritmo base 2 de $ n $.
+
+Finalmente, al simplificar y sumar todas las términos, obtienes:
+$$
+= \frac{1}{2} n^2 (\log n)^2 + n^2 T(1)
+\in \Theta(n^2 (\log n)^2)
+$$
+
 ## Ejercicio 5
 
 Dé una recurrencia que cumpla con las condiciones del tercer caso del *Master Method* excepto la condición de regularidad.
