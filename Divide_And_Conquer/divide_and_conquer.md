@@ -134,7 +134,7 @@ Ahora para solucionar la ecuación de recurrencia:
 - Se observa que el patrón general es $S(m) = 3^k S(\frac{m}{2^k}) +m \sum_{i=0}^{k-1}(\frac{3}{2})^i$
 - Para un k grande, se obtiene que $\frac{m}{2^k}$ = $S(1)$
 - La sumatoria es igual a la serie geométrica: $2((\frac{3}{2})^k -1)$
-- Aproximando k de $\frac{m}{2^k} = 1$ obtenemos que $2^k = m$$ por lo tanto k == log_2 m$
+- Aproximando k de $\frac{m}{2^k} = 1$ obtenemos que $2^k = m$ por lo tanto $k == log_2 m$
 - Entonces $S(m) = O(m^log_2 3)$
 - Volviendo a la ecuación original tenemos que $T(n) = O((log_2 n)^log_2 3)$
 - Esto da como resultado que $T(n) = O((log_10 n)^log_2 3)$
@@ -145,7 +145,7 @@ Use un árbol de recursión para proveer una cota ajustada a la recurrencia $T(n
 
 ### Solución
 
-El problema nos indica que la función $ T(n) $ se divide en dos subproblemas: uno de tamaño $T(n-a)$ y otro constante $T(a)$. El tiempo total de ejecución en cada nivel de recursión es la suma de estos términos más un costo lineal adicional de $cn$.
+El problema nos indica que la función $T(n)$ se divide en dos subproblemas: uno de tamaño $T(n-a)$ y otro constante $T(a)$. El tiempo total de ejecución en cada nivel de recursión es la suma de estos términos más un costo lineal adicional de $cn$.
 
 #### Iteración 1
 
@@ -214,15 +214,15 @@ $$
 
 #### **Paso inductivo:**
 
-Queremos probar que también se cumple para $ n $.
+Queremos probar que también se cumple para $n$.
 
 Partimos de la recurrencia original:
 $$T(n) = T(n - a) + T(a) + cn$$
 
-Aplicando la hipótesis de inducción al término $ T(n - a) $:
+Aplicando la hipótesis de inducción al término $T(n - a)$:
 $$T(n - a) \leq c(n - a)^2$$
 
-Sabemos que $ T(a) $ es constante, ya que $ a $ es constante, digamos $ T(a) = O(1) \leq c a^2 $ para ajustar la notación.
+Sabemos que $T(a)$ es constante, ya que $a$ es constante, digamos $T(a) = O(1) \leq c a^2$ para ajustar la notación.
 
 Entonces:
 $$T(n) \leq c(n - a)^2 + c a^2 + cn$$
@@ -235,7 +235,7 @@ $$= c n^2 - 2 c a n + c a^2 + c a^2 + c n$$
 
 $$= c n^2 - 2 c a n + c n + 2 c a^2$$
 
-Para valores grandes de $ n $, el término dominante es $ c n^2 $, ya que los términos lineales y constantes son despreciables en comparación con el crecimiento cuadrático.
+Para valores grandes de $n$, el término dominante es $c n^2$, ya que los términos lineales y constantes son despreciables en comparación con el crecimiento cuadrático.
 
 Por lo tanto:
 $$T(n) \leq c n^2$$
@@ -245,11 +245,11 @@ $$T(n) = O(n^2)$$
 
 #### **Caso Base:**
 
-Para $ n = a $, la recurrencia indica:
+Para $n = a$, la recurrencia indica:
 $$T(a) = O(1)$$
 Claramente:
 $$T(a) \leq c a^2$$
-para alguna constante $ c > 0 $, lo cual establece la base de la inducción.
+para alguna constante $c > 0$, lo cual establece la base de la inducción.
 
 ## Ejercicio 4
 
@@ -257,7 +257,7 @@ Use el *Master Method* (si es posible) para dar cotas ajustadas a las siguientes
 
 ### $T(n) = 2T\left(\frac{n}{4}\right) + \sqrt{n}$
 
-En esta recurrencia sabemos que $ a = 2 $, $ b = 4 $ y que  
+En esta recurrencia sabemos que $a = 2$, $b = 4$ y que  
 
 $f(n) = \sqrt{n} = n^{1/2}$
 
