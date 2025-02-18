@@ -27,15 +27,15 @@ Use el método de sustitución para determinar la solución a la siguiente recur
 
 $ T(n) = 4T\left(\frac{n}{2}\right) + n $. La solución de acuerdo con el *Master Method* es $\Theta(n^2)$, pero usar la hipótesis $cn^2$ falla. Realice el procedimiento bajo esa hipótesis para comprobar que falla y luego modifique la hipótesis para que funcione.
 
-## Solución de Recurrencia por Método de Sustitución
+### Solución de Recurrencia por Método de Sustitución
 
-### Planteamiento Inicial
+#### Planteamiento Inicial
 
 Tenemos la recurrencia $$T(n) = 4T\left(\frac{n}{2}\right) + n$$
 
 Según el Teorema Maestro, esta recurrencia cae en el Caso 2, ya que $f(n) = n$ es polinomialmente menor que $n^2$ (donde $a=4$ y $b=2$). Por lo tanto, la solución debería ser $\Theta(n^2)$. Sin embargo, al intentar asumir $T(n) \leq cn^2$, la sustitución no funciona.
 
-### Primera Hipótesis
+#### Primera Hipótesis
 
 Asumamos que $T(k) \leq ck^2$ para todo $k < n$. Sustituyendo en la recurrencia:
 
@@ -50,7 +50,7 @@ $$cn^2 + n \leq cn^2$$
 
 Esto implicaría que $n \leq 0$, lo cual es imposible ya que $n > 0$. Por lo tanto, la hipótesis inicial falla.
 
-### Cambio de hipótesis Hipótesis
+#### Cambio de hipótesis Hipótesis
 
 Debido a que la hipótesis inicial falla, se realizaran cambios para la hipótesis de la forma $$T(n) \leq cn^2 - dn$$ para algunas constantes $c$ y $d$.
 
@@ -74,7 +74,7 @@ Simplificando:
 Para que esta desigualdad se cumpla para todo $n > 0$, se necesita:
 $$-3d + 1 \leq 0 \implies d \geq \frac{1}{3}$$
 
-### Verificación para Casos Base
+#### Verificación para Casos Base
 Por ultimo se verifican los pequeños valores de $n$:
 
 Para $n = 2$:
@@ -87,7 +87,7 @@ $$T(4) = 16c - 8d + 4$$
 Debe cumplir:
 $$16c - 8d + 4 \leq 16c - 4d \implies -8d + 4 \leq -4d \implies -4d + 4 \leq 0 \implies d \geq 1$$
 
-### Conclusión
+#### Conclusión
 La solución correcta requiere tomar $d \geq 1$. Con $d = 1$, tenemos:
 $$T(n) \leq cn^2 - n$$
 
