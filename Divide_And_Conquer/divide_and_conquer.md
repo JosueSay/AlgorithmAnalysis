@@ -250,12 +250,12 @@ $$ f(n) = \sqrt{n} = n^{1/2} $$
 Paso 1: usando los datos que ya sabemos
 $$ log_4 2 = \frac{1}{2} $$
 Ahora, comparamos $$ f(n) $$ con  $$ n^{\log_b a} $$:
-- $$\ f(n) = n^{1/2} \ $$
-- $$\  n^{\log_b a} = n^{1/2} \ $$
+- $$ f(n) = n^{1/2} $$
+- $$ n^{\log_b a} = n^{1/2} $$
 Nos damos cuenta que se cumple el caso dos porque tanto como f(n) y Thetha son iguales 
-$$ \ f(n) = \Theta(n^{\log_b a}) \ $$
+$$ f(n) = \Theta(n^{\log_b a}) $$
 Por lo tanto la solución sería de la siguiente manera
-$$\ T(n) = \Theta(n^{\log_b a} \log n) = \Theta(n^{1/2} \log n) \ $$
+$$ T(n) = \Theta(n^{\log_b a} \log n) = \Theta(n^{1/2} \log n) $$
 
 ### $ T(n) = 4T\left(\frac{n}{2}\right) + n^2 \log_2 n $
 $$
@@ -277,8 +277,26 @@ $$
 $$
 
 ## Ejercicio 5
+Para esto utilizaremos una recurrencia de tipo: 
+$$
+T(n) = 2T\left(\frac{n}{2}\right) + n \log n
+$$
 
-Dé una recurrencia que cumpla con las condiciones del tercer caso del *Master Method* excepto la condición de regularidad.
+Siguiendo los pasos del método maestro sabemos que:
+$$ \log_b a = \log_2 2 = 1 $$
+
+Condiciones que se deben de cumplir para el tercer caso: 
+1. **Primera condición del tercer caso**
+   - $$ f(n) = n \log n $$
+   - $$ n \log n = \Omega(n^{\log_b a + \epsilon}) = \Omega(n^{1 + \epsilon}) $$.
+   - Para $$ \epsilon = 0.1 $$ , $$ n \log n $$ crece más rápido que $$ n^{1.1} $$, por lo que se cumple.
+
+2. **Condición de regularidad (condicion a fallar)**:
+   - Verificamos si $$ af\left(\frac{n}{b}\right) \leq k f(n) $$ para alguna $$ k < 1 $$.
+   - $$ af\left(\frac{n}{2}\right) = 2 \cdot \frac{n}{2} \log \left(\frac{n}{2}\right) = n (\log n - \log 2) $$.
+   - Comparando con $$ f(n) = n \log n $$, no existe una constante $$ k < 1 $$ tal que $$ n (\log n - \log 2) \leq k \cdot n \log n $$ para todo $$ n $$ suficientemente grande, porque $$ \log n - \log 2 $$ no es significativamente menor que $$ \log n $$.
+
+Encontramos el caso donde no cumple la condición de recurrencia.
 
 ## Ejercicio 6
 
