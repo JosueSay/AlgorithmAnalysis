@@ -95,11 +95,11 @@ Esta forma satisface tanto la recurrencia como los casos base, confirmando que $
 
 ## Ejercicio 2
 
-Resuelva la recurrencia $$ T(n) = 3T(\sqrt{n}) + \log_2 n $$. Para hacerlo demuestre primero que se puede convertir en $ S(m) = 3S\left(\frac{m}{2}\right) + m $; y luego resuelva esta recurrencia con el método de sustitución. Con este resultado provea la respuesta para la recurrencia original.
+Resuelva la recurrencia $$T(n) = 3T(\sqrt{n}) + \log_2 n$$. Para hacerlo demuestre primero que se puede convertir en $$S(m) = 3S\left(\frac{m}{2}\right) + m$$; y luego resuelva esta recurrencia con el método de sustitución. Con este resultado provea la respuesta para la recurrencia original.
 
-**Hint**: note que, en $$ S(m) $$, $$ m $$ parece ocupar el lugar que $$\log_2 n$$ tiene en $$ T(n) $$.
+**Hint**: note que, en $$S(m) $$, $$ m$$ parece ocupar el lugar que $$\log_2 n$$ tiene en $$T(n)$$.
 
-Si sabemos que $$ S(m) = 3S\left(\frac{m}{2}\right) + m $$ y que $$ m = log_2 n$$, entonces, despejando dicha ecuación para n tenemos que $$ 2^m = 2^log_2 n $$ y eso da como resultado que $$ n = 2^m $$
+Si sabemos que $$S(m) = 3S\left(\frac{m}{2}\right) + m$$ y que $$m = log_2 n$$, entonces, despejando dicha ecuación para n tenemos que $$2^m = 2^log_2 n$$ y eso da como resultado que $$n = 2^m$$
 
 ## Ejercicio 3
 
