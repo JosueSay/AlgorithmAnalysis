@@ -319,35 +319,41 @@ Se conoce que ```for very vertex w do``` y como se indica en el enunciado sera p
 
 Dado que el valor máximo de \( i \) en la ejecución del algoritmo es \( \log_2 i \), expandimos la recurrencia:
 
-\[
+$$
 T(i) = i \cdot T(i - 1)
-\]
+$$
 
-\[
+$$
 = i^2 \cdot T(i - 1)
-\]
+$$
 
-\[
+$$
 = i^3 \cdot T(i - 1)
-\]
+$$
 
-Continuando hasta el caso base \( T(1) \), obtenemos:
+Continuando hasta el caso base T(1), obtenemos:
 
-\[
+$$
 T(i) = n^i
-\]
+$$
 
 Aplicando i = $log_2 n$
 
-\[
+$$
 T(i) = n^{log_2 n}
-\]
+$$
 
 Por lo tanto, la cota superior asintótica del tiempo de ejecución es:
 
-\[
+$$
 O(n^{log_2 n})
-\]
+$$
 
 
 ### Conclusiones
+Para saber si fue mas rapido o mas lento debemos de ver algoritmos similares, pero antes analicemos nuestro algoritmo, primero no es olinomial sino exponencial , lo cual lo hace mas lento. 
+
+Segundo existen algoritmos como el de  Floyd-Warshall  que son $O(n^3)$ que son mucho mas eficientes manejando el uso de encontrar caminos mas cortos en los pares de nodos. 
+
+Asi que para el caso de $i = log_2 n$ es ineficiente. Pero si i no fuese ese caso de hecho su complejidad seria de $O(log_2 n)$
+
