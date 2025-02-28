@@ -74,7 +74,7 @@ nodo(n){
 Si lo visualizamos en un grafo de suproblemas para un n = 5 tendremos 
 
 
-
+![alt text](image-4.png)
 
 Aqui lo que pasa es que estamos calculando en un stack de tamaño n+1 la secuencia de sucesiones que vimos en el grafo anterior. 
 
