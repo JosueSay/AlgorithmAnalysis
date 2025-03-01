@@ -10,6 +10,7 @@ header-includes:
   - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 geometry: top=0.67in, bottom=0.67in, left=0.85in, right=0.85in
 ---
+
 # Grafo de Subproblemas
 
 ## Integrantes
