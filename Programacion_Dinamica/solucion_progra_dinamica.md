@@ -69,7 +69,7 @@ Para ilustrar estos pasos, consideremos el **Problema de la Mochila 0/1**. Dado 
      \quad dp[i][0] = 0 \quad \text{para todo } i.
      $$
 
-3. **Algoritmo** (Tabulación):
+3. **Algoritmo:**
    - A continuación se presenta una implementación en Python:
 
    ```python
@@ -102,3 +102,4 @@ Para ilustrar estos pasos, consideremos el **Problema de la Mochila 0/1**. Dado 
        valores = [3, 4, 5, 6]
        capacidad = 5
        print("Valor máximo:", knapsack_01(pesos, valores, capacidad))
+   ```
