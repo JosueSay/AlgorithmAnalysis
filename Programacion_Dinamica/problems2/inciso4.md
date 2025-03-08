@@ -125,3 +125,26 @@ Después de $|V|-1 = 3$ iteraciones, las **distancias mínimas** desde el vérti
 - $d(B) = 1$
 - $d(C) = 3$
 - $d(D) = 4$
+
+## Subestructura optima y subproblemas traslapdos
+
+En este algoritmo el problema principal es encontrar un camino mas corto entre los vertices $S$ y $v$. 
+
+Los subproblemas en los que se puede dividir son: 
+* Encontrar el camino más corto entre v y cada i (1 ≤ i ≤ |V|-1), usando i aristas. 
+* Por ejemplo, en el camino A→B→C→D, el camino más corto a $D$ depende del camino más corto a $C$, que a su vez depende del camino más corto a $B$.
+
+#### Subproblemas traslapados
+Los subproblemas se superponen porque el cálculo de $d[v]$ puede depender de $d[u]$ para múltiples vértices $u$.
+
+**Ejemplo:** $d[D]$ se actualiza primero usando $B$ y luego usando $C$.
+
+## Recurrencia 
+
+**Relación de Recurrencia**
+
+La relación de recurrencia que define el valor óptimo d[v] es:
+
+$$d[v] = \min_{(u,v) \in E} (d[u] + w(u,v))$$
+
+* Esto significa que la distancia más corta a $v$ es el mínimo de las distancias a sus predecesores $u$ más el peso de la arista $(u,v)$.
