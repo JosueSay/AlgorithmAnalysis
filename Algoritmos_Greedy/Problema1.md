@@ -86,7 +86,7 @@ Se hacen dos llamadas recursivas para ordenar cada mitad → $2T(n/2)$.
 Luego se mezclan ambas mitades ordenadas en tiempo $O(n)$.
 
 
-$$TT(n)=2T(n/2)+O(n)$$
+$$T(n)=2T(n/2)+O(n)$$
 
 Ahora resolvemos la recurrencia con la ecuacion de recurrencia 
 
