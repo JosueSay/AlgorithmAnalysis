@@ -10,6 +10,19 @@ c. Demuestre que su algoritmo de la solucion optima (es decir que , demuestre pr
 
 ## 1. Proponga un algoritmo
 
+Lo que queremos minimizar es todos los tiempos de terminacion de nuestro stack osea que minicemos el tiempo total de minimizacion entre ellos. En pocas palabras :
+
+$$min(\sum_{i=1}^n c_i)$$
+
+Asi mismo se sabe lo siguiente
+
+- Una vez iniciado un proceso $a_i$ no se puede pausar
+- Se ordenan los procesos segun su $p_i$ o tiempo de procesamiento. 
+- El tiempo de terminacion $c_i$ de un proceso $a_i$ es igual a $p_i + t$ osea es el procesamiento actual y t que es la sumatoria de todos los anteriores. $t =\sum_{i=1}^i c_i $.
+
+Ahora vamos a 
+
+
 ## 2. Tiempo de Ejecucion
 
 ## 3. Solucion Optima
