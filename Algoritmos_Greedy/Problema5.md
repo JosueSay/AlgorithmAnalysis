@@ -84,16 +84,8 @@ La implementación con cola de Fibonacci mejora la complejidad teórica:
 ## Comparación con Bellman-Ford
 
 - **Dijkstra**: O(V²) con array simple, O(E·log V) con heap binario
-- **Bellman-Ford**: O(V·E)
+- **Bellman-Ford**: O(n log n)
 
-### Ventajas de Dijkstra:
-- Más eficiente para grafos con pesos positivos, especialmente cuando E << V²
-- Con cola de prioridad, tiene mejor desempeño en grafos dispersos
-
-### Ventajas de Bellman-Ford:
-- Funciona con pesos negativos (mientras no haya ciclos negativos)
-- Detecta ciclos de peso negativo
-- Implementación más simple
 
 ## Conclusión
 
@@ -102,4 +94,4 @@ La complejidad del algoritmo de Dijkstra con enfoque greedy varía según la imp
 - O(E·log V) con cola de prioridad binaria
 - O(V·log V + E) con cola de Fibonacci
 
-Esta demostración confirma que la implementación con estructuras de datos adecuadas hace que Dijkstra sea más eficiente que Bellman-Ford para grafos con pesos positivos, especialmente en grafos dispersos donde E es significativamente menor que V².
+Esta demostración confirma que la implementación con estructuras de datos adecuadas hace que Dijkstra tenga un rendimiento similar al algoritmo Bellman-Ford, ambos son igual de útiles en la misma instancia del problema ya que tienen una complejiad similar, en otra instancia del problema también tienen un rendimiento similar 
