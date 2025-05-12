@@ -17,10 +17,10 @@ $$min(\sum_{i=1}^n c_i)$$
 Asi mismo se sabe lo siguiente
 
 - Una vez iniciado un proceso $a_i$ no se puede pausar
-- Se ordenan los procesos segun su $p_i$ o tiempo de procesamiento. 
+- Se ordenan los procesos segun su $p_i$ o tiempo de procesamiento.
 - El tiempo de terminacion $c_i$ de un proceso $a_i$ es igual a $p_i + t$ osea es el procesamiento actual y t que es la sumatoria de todos los anteriores. $t =\sum_{i=1}^i c_i $.
 
-Ahora vamos a proponer el algoritmo, recordemos que estamos lidiando con una heuristica SPF o shortest processing time first debido a que vamos a realizar el procesamiento de los que tienen menos tiempo de procesamiento para minimizar el total de tiempos de terminacion. 
+Ahora vamos a proponer el algoritmo, recordemos que estamos lidiando con una heuristica SPF o shortest processing time first debido a que vamos a realizar el procesamiento de los que tienen menos tiempo de procesamiento para minimizar el total de tiempos de terminacion.
 
 Esto se puede observar si tenemos 2 procesos:
 
@@ -30,7 +30,6 @@ Esto se puede observar si tenemos 2 procesos:
 Si se ejecuta primero el tiempo de c de A sera 1, el c de B sera 1 + 10 osea 11. Y el total de terminacion de todos sera 1 + 11  = 12.
 
 Pero si se ejecuta primero el de mas tiempo el tiempo de procesamiento de B sera 10 pero el de A sera de 11. Y el total sera de 10 + 11 osea 21
-
 
 El pseudocodigo del algoritmo sera el siguiente
 
@@ -85,14 +84,13 @@ Se hacen dos llamadas recursivas para ordenar cada mitad → $2T(n/2)$.
 
 Luego se mezclan ambas mitades ordenadas en tiempo $O(n)$.
 
-
 $$T(n)=2T(n/2)+O(n)$$
 
-Ahora resolvemos la recurrencia con la ecuacion de recurrencia 
+Ahora resolvemos la recurrencia con la ecuacion de recurrencia
 
 $$T(n)=aT(n/b)+f(n)$$
 
-Una vez identificada la forma de la grafica sabemos que 
+Una vez identificada la forma de la grafica sabemos que
 
 - $a=2$
 - $b=2$
@@ -108,8 +106,7 @@ $$O(n log n)$$
 
 ## 3. Solucion Optima
 
-
-### Demostración (Intercambio por pares):
+### Demostración (Intercambio por pares)
 
 Sabemos que de la secuencia de tareas S, tenemos 2 tareas $a_i$ y $a_{i+1}$ entonces sus $p_i$ seguiran el orden de $p_i > p{i+1}$
 
@@ -130,12 +127,11 @@ Después de intercambiar osea que primero se hagan los mas largos:
 - $c' = t+p_{i+1}$
 - $c'_{i+1} = t+p_{i+1}$
 
-
 La sumatoria sera
 
 $$c'_i + c'_{i+1} = (t+p_{i+1}) + (t+p_{i+1}+p_i) = 2t+2p_{i+1}+p_i$$
 
-Ahora vamos a comparar 
+Ahora vamos a comparar
 
 $$(2t+2p_i+p_{i+1})-(2t+2p_{i+1}+p_i)$$
 
@@ -153,4 +149,3 @@ Esto quieres decir que la suma antes del intercambio era mayor, por lo tanto el 
 Intercambiar una tarea más larga que aparece antes por una más corta que aparece después reduce la suma de tiempos de terminación.
 
 Lo que nos lleva a que debemos de ordenar los $p_i$ de manera creciente.
-
